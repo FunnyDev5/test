@@ -115,8 +115,38 @@ local Button = ScriptsTab:CreateButton({
 })
 
 local Button = ScriptsTab:CreateButton({
-   Name = "Infinite Yield",
+   Name = "CMD-X",
    Callback = function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Fate's Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+   end,
+})
+
+local ScriptSection = ScriptsTab:CreateSection("Scripts")
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Vynixu's MM2 Script",
+   Callback = function()
+       loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Nexus Script",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/13B8B/NEXUS/main/loadstring'))()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Mirai Hub",
+   Callback = function()
+       loadstring(game:HttpGet('https://misakiii.000webhostapp.com/loader.lua', true))()
    end,
 })
