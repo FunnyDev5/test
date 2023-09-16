@@ -1,0 +1,122 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🔫FunnyDev MM2 Scipt🔪",
+   LoadingTitle = "FunnyScript",
+   LoadingSubtitle = "By FunnyDev",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "FUNNYSCRIPT DATA"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Stuff")
+
+local Button = MainTab:CreateButton({
+   Name = "INF Jump",
+   Callback = function()
+        game:GetService("UserInputService").JumpRequest:connect(function()
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
+    end)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Grab Gun",
+   Callback = function()
+       local script = Instance.new('LocalScript')
+ 
+ 
+		local currentX = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X
+		local currentY = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y
+		local currentZ = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z	
+ 
+		if workspace:FindFirstChild("GunDrop") ~= nil then
+ 
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:FindFirstChild("GunDrop").CFrame	
+		wait(.25)	
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+ 
+		else
+ 
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Error!",
+Text = "Failed To Get the gun , Be faster next time retard",
+Duration = 7,
+Button1 = "OK",
+Callback = cb
+})
+ 
+ 
+		wait(3)
+ 
+ 
+		end
+   end,
+})
+
+local ESPTab = Window:CreateTab("ESP", nil) -- Title, Image
+local ESPSection = ESPSection:CreateSection("ESP")
+
+local Button = ESPTab:CreateButton({
+   Name = "ESP",
+   Callback = function()
+   local function getRoleColor(plr)
+   if (plr.Backpack:FindFirstChild("Knife") or plr.Character:FindFirstChild("Knife")) then
+       return Color3.new(255, 0, 0)
+   elseif (plr.Backpack:FindFirstChild("Gun") or plr.Character:FindFirstChild("Gun")) then
+       return Color3.new(0, 0, 255)
+   else
+       return Color3.new(0, 255, 0)
+   end
+end
+ 
+while true do
+   for _, v in pairs(game.Players:GetChildren()) do
+       if v ~= game.Players.LocalPlayer and v.Character and not v.Character:FindFirstChild("Highlight") then
+           Instance.new("Highlight", v.Character)
+           v.Character.Highlight.FillTransparency = 0.5
+           v.Character.Highlight.OutlineTransparency = 0.5
+           v.Character.Highlight.FillColor = getRoleColor(v)
+       elseif (v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Highlight")) then
+           v.Character.Highlight.FillColor = getRoleColor(v)
+       end
+   end
+   wait(0.1)
+end
+   end,
+})
+
+local ScriptsTab = Window:CreateTab("Other Scripts", nil) -- Title, Image
+local ScriptSection = ScriptsTab:CreateSection("Admin Scripts")
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Button = ScriptsTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
