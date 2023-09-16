@@ -78,7 +78,7 @@ local ESPSection = ESPSection:CreateSection("ESP")
 local Button = ESPTab:CreateButton({
    Name = "ESP",
    Callback = function()
-   local function getRoleColor(plr)
+   	local function getRoleColor(plr)
    if (plr.Backpack:FindFirstChild("Knife") or plr.Character:FindFirstChild("Knife")) then
        return Color3.new(255, 0, 0)
    elseif (plr.Backpack:FindFirstChild("Gun") or plr.Character:FindFirstChild("Gun")) then
