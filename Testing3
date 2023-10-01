@@ -66,6 +66,6 @@ local Button = MainTab:CreateButton({
 local Button = MainTab:CreateButton({
    Name = "Delete Shop",
    Callback = function()
-        game.Workspace.Map.Shop:Destroy
+        game.Workspace.Map.Shop:Destroy()
    end,
 })
